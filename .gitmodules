@@ -1,0 +1,9 @@
+[submodule "ext/benchmark"]
+	path = ext/benchmark
+	url = https://github.com/google/benchmark.git
+[submodule "ext/Catch2"]
+	path = ext/Catch2
+	url = https://github.com/catchorg/Catch2.git
+[submodule "ext/abseil-cpp"]
+	path = ext/abseil-cpp
+	url = https://github.com/abseil/abseil-cpp.git
