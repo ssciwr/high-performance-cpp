@@ -14,6 +14,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(ABSL_PROPAGATE_CXX_STD ON)
 add_subdirectory(ext/abseil-cpp)
 
+find_package(OpenMP REQUIRED)
+
 # compile the hpcpp library
 add_subdirectory(src)
 
