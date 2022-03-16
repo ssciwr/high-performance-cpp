@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: "recursive"
+      - uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - name: Build & test
+        run: |
+          mkdir build && cd build
+          cmake -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release ..
+          cmake --build . -j 3
+          ctest
+      - name: Run benchmark
+        run: |
+          ./build/bench/bench
+
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: "recursive"
+      - uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - run: pip install gcovr
+      - name: Build & test
+        run: |
+          mkdir build && cd build
+          cmake -DBUILD_TESTING=ON -DHPCPP_BUILD_BENCHMARKS=OFF -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage" ..
+          cmake --build . -j 3
+          ctest
+      - name: Generate coverage report
+        run: |
+          gcovr --exclude-throw-branches -r . -f include/ -f src/ --xml -o coverage.xml
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          files: ./coverage.xml
+          verbose: true
