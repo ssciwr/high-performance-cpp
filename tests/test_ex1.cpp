@@ -18,4 +18,10 @@ TEST_CASE("matmul", "[ex1]") {
   matmul3(m, v, r);
   REQUIRE(r[0] == Approx(r0).epsilon(1e-13));
   REQUIRE(r[1] == Approx(r1).epsilon(1e-13));
+  matmul4(m, v, r);
+  REQUIRE(r[0] == Approx(r0).epsilon(1e-13));
+  REQUIRE(r[1] == Approx(r1).epsilon(1e-13));
+  matmul5(m, v, r);
+  REQUIRE(r[0] == Approx(r0).epsilon(1e-13));
+  REQUIRE(r[1] == Approx(r1).epsilon(1e-13));
 }

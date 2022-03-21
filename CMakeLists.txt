@@ -14,9 +14,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(ABSL_PROPAGATE_CXX_STD ON)
 add_subdirectory(ext/abseil-cpp)
 
-find_package(OpenMP REQUIRED)
-
 # compile the hpcpp library
+option(HPCPP_WITH_BLAS "Use a BLAS library for matrix multiplication" ON)
+option(HPCPP_WITH_SIMD "Enable SIMD cpu instructions" ON)
 add_subdirectory(src)
 
 # compile the tests
