@@ -76,7 +76,7 @@ jobs:
         run: |
           gcovr --exclude-throw-branches -r . -f include/ -f src/ --xml -o coverage.xml
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         with:
           files: ./coverage.xml
           verbose: true
