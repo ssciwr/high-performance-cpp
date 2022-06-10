@@ -1,3 +1,4 @@
 theme: jekyll-theme-slate
 title: "High Performance C++"
 description: "SSC Compact Course"
+exclude: [bench, ext, include, src, tests]
