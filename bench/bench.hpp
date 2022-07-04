@@ -1,6 +1,7 @@
 #pragma once
 
 #include <benchmark/benchmark.h>
+#include <hpcpp/ex2.hpp>
 #include <list>
 #include <random>
 #include <vector>
@@ -21,3 +22,5 @@ std::list<T> make_random_list(std::size_t n, std::mt19937 &gen) {
                   [&dist, &gen]() { return dist(gen); });
   return l;
 }
+
+hpcpp::Particle make_random_particle(std::mt19937 &gen);
