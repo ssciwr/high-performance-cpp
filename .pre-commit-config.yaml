@@ -22,6 +22,7 @@ repos:
     rev: v2.7.1
     hooks:
       - id: prettier
+        exclude_types: [json]
 
   - repo: https://github.com/lovesegfault/beautysh
     rev: v6.2.1

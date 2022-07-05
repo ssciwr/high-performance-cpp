@@ -3,7 +3,7 @@
 
 using namespace hpcpp;
 
-TEST_CASE("Particles", "[ex2]") {
+TEST_CASE("particles", "[ex2]") {
   // make some particles
   Particle p0{};
   p0.active = true;
