@@ -6,12 +6,12 @@
 
 Sample code to accompany the SSC compact course High Performance C++
 
-- [work in progress pdf slides](https://github.com/ssciwr/high-performance-cpp/raw/main/slides/slides.pdf)
+- [pdf slides](https://github.com/ssciwr/high-performance-cpp/raw/main/slides/slides.pdf)
 - [pdf course description](https://ssc.iwr.uni-heidelberg.de/sites/default/files/high-performance-cpp-ss22.pdf)
 
 ## Getting started
 
-To clone the repo and compile the code:
+To clone the repo, compile the code and run the benchmarks:
 
 ```
 git clone --recursive https://github.com/ssciwr/high-performance-cpp.git
@@ -20,4 +20,21 @@ mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
+./bench/bench
 ```
+
+## Plots
+
+Matrix-vector multiplication:
+
+![plots/data_structure.png](plots/matmul.png)
+
+List versus Vector:
+
+![plots/data_structure.png](plots/data_structure.png)
+
+Struct of Arrays versus Array of Structs:
+
+![plots/data_structure.png](plots/particles_m.png)
+
+![plots/data_structure.png](plots/particles_xy.png)

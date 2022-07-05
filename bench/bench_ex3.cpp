@@ -3,7 +3,7 @@
 constexpr int n_min{8};
 constexpr int n_max{1 << 16};
 
-static void bench_ds_vector_back(benchmark::State &state) {
+static void bench_data_structure_vector_back(benchmark::State &state) {
   auto n{state.range(0)};
   std::mt19937 gen(123);
   for (auto _ : state) {
@@ -15,7 +15,7 @@ static void bench_ds_vector_back(benchmark::State &state) {
   state.SetComplexityN(n);
 }
 
-static void bench_ds_vector_front(benchmark::State &state) {
+static void bench_data_structure_vector_front(benchmark::State &state) {
   auto n{state.range(0)};
   std::mt19937 gen(123);
   for (auto _ : state) {
@@ -27,7 +27,7 @@ static void bench_ds_vector_front(benchmark::State &state) {
   state.SetComplexityN(n);
 }
 
-static void bench_ds_list(benchmark::State &state) {
+static void bench_data_structure_list(benchmark::State &state) {
   auto n{state.range(0)};
   std::mt19937 gen(123);
   for (auto _ : state) {
@@ -39,6 +39,10 @@ static void bench_ds_list(benchmark::State &state) {
   state.SetComplexityN(n);
 }
 
-BENCHMARK(bench_ds_vector_front)->RangeMultiplier(2)->Range(n_min, n_max);
-BENCHMARK(bench_ds_vector_back)->RangeMultiplier(2)->Range(n_min, n_max);
-BENCHMARK(bench_ds_list)->RangeMultiplier(2)->Range(n_min, n_max);
+BENCHMARK(bench_data_structure_vector_front)
+    ->RangeMultiplier(2)
+    ->Range(n_min, n_max);
+BENCHMARK(bench_data_structure_vector_back)
+    ->RangeMultiplier(2)
+    ->Range(n_min, n_max);
+BENCHMARK(bench_data_structure_list)->RangeMultiplier(2)->Range(n_min, n_max);

@@ -18,8 +18,8 @@ constexpr int n_max{1 << 10};
   }                                                                            \
   BENCHMARK(bench_##MATMULFUNC)->RangeMultiplier(2)->Range(n_min, n_max);
 
-BENCH_MATMUL(matmul1);
-BENCH_MATMUL(matmul2);
-BENCH_MATMUL(matmul3);
-BENCH_MATMUL(matmul4);
-BENCH_MATMUL(matmul5);
+BENCH_MATMUL(matmul_1);
+BENCH_MATMUL(matmul_2);
+BENCH_MATMUL(matmul_3);
+BENCH_MATMUL(matmul_4);
+BENCH_MATMUL(matmul_5);
