@@ -25,16 +25,20 @@ cmake --build .
 
 ## Plots
 
+List versus Vector inserting elements:
+
+![](plots/data_structure-llvm.png)
+![](plots/data_structure-gcc.png)
+
 Matrix-vector multiplication:
 
-![plots/data_structure.png](plots/matmul.png)
-
-List versus Vector:
-
-![plots/data_structure.png](plots/data_structure.png)
+![](plots/matmul-llvm.png)
+![](plots/matmul-gcc.png)
 
 Struct of Arrays versus Array of Structs:
 
-![plots/data_structure.png](plots/particles_m.png)
+![](plots/particles_m-llvm.png)
+![](plots/particles_m-gcc.png)
 
-![plots/data_structure.png](plots/particles_xy.png)
+![](plots/particles_xy-llvm.png)
+![](plots/particles_xy-gcc.png)

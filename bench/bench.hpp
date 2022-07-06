@@ -1,9 +1,11 @@
 #pragma once
 
+#include <array>
 #include <benchmark/benchmark.h>
 #include <hpcpp/ex2.hpp>
 #include <list>
 #include <random>
+#include <string>
 #include <vector>
 
 template <typename T>
@@ -24,3 +26,5 @@ std::list<T> make_random_list(std::size_t n, std::mt19937 &gen) {
 }
 
 hpcpp::Particle make_random_particle(std::mt19937 &gen);
+
+std::string make_random_gene(std::size_t n, std::mt19937 &gen);
