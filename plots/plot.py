@@ -2,8 +2,8 @@
 # coding: utf-8
 
 # to use:
-# 1. generate a json file, e.g. ./build/bench --benchmark_out=bench.json
-# 2. generate plots, e.g. ./plot.py bench.json
+# 1. generate a json file, e.g. ./build/bench --benchmark_out=gcc.json
+# 2. generate plots, e.g. ./plot.py gcc.json
 
 import pandas as pd
 import json
@@ -11,7 +11,7 @@ from matplotlib import pyplot as plt
 import sys
 
 filename = sys.argv[1]
-basename = filename.split(".")[0]
+name = filename.split(".")[0]
 
 # load benchmarks data
 df = pd.DataFrame(json.load(open(filename))["benchmarks"])
@@ -29,17 +29,17 @@ df["benchmark"] = df.name.apply(lambda x: x.split("/")[0][6:])
 df = df[["benchmark", "n", "cpu_time"]]
 
 # plot results
-for basename in ["data_structure", "matmul", "particles_m", "particles_xy"]:
+for basename in ["data_structure", "matmul", "particles_m", "particles_xy", "dist"]:
     fig, ax = plt.subplots(ncols=1, figsize=(12, 6))
     for benchmark, data in df.loc[df.benchmark.str.contains(basename)].groupby(
         "benchmark"
     ):
         data.plot(ax=ax, x="n", y="cpu_time", label=benchmark[(len(basename) + 1) :])
     plt.title(basename)
-    plt.title(f"{basename} runtime")
+    plt.title(f"{basename} runtime ({name})")
     plt.xscale("log")
     plt.xlabel("number of items")
     plt.yscale("log")
     plt.ylabel("runtime (ns)")
     plt.legend()
-    fig.savefig(f"{basename}.png", bbox_inches="tight", dpi=120)
+    fig.savefig(f"{basename}-{name}.png", bbox_inches="tight", dpi=120)

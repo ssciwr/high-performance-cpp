@@ -1,4 +1,4 @@
-add_library(hpcpp ex1.cpp ex2.cpp)
+add_library(hpcpp ex1.cpp ex2.cpp ex3.cpp)
 target_include_directories(hpcpp PUBLIC ${CMAKE_SOURCE_DIR}/include)
 target_include_directories(hpcpp PUBLIC ${CMAKE_SOURCE_DIR}/ext/eigen)
 if(MSVC)
