@@ -22,6 +22,13 @@ cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
 ./bench/bench
 ```
+Notes
+
+- CMake 3.16 gave a `target "BLAS::BLAS"` error on Ubuntu (see [#13](https://github.com/ssciwr/high-performance-cpp/issues/13))
+  - Using a more recent CMake version is one solution to this problem
+- Apple clang on M1 mac doesn't support the `-march=native` flag
+  - Possible alternatives: `-mcpu=apple-m1` or `-mcpu=apple-a14`
+  - `-march=native` will be supported by on M1 by clang 15
 
 ## Plots
 
