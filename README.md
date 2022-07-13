@@ -4,10 +4,11 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ssciwr/high-performance-cpp/CI)](https://github.com/ssciwr/high-performance-cpp/actions?query=workflow%3ACI)
 [![codecov](https://codecov.io/gh/ssciwr/high-performance-cpp/branch/main/graph/badge.svg)](https://codecov.io/gh/ssciwr/high-performance-cpp)
 
-Sample code to accompany the SSC compact course High Performance C++
+## Slides
 
-- [pdf slides](https://github.com/ssciwr/high-performance-cpp/raw/main/slides/slides.pdf)
-- [pdf course description](https://ssc.iwr.uni-heidelberg.de/sites/default/files/high-performance-cpp-ss22.pdf)
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSsQgXEWShyBmv29hURbcjWcCXJmAKv-PvT-6vIaIHqgV33GyhPa8tWnzT8fM1Gl3XzEXjzpfuWieXS/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+[download slides as pdf](https://github.com/ssciwr/high-performance-cpp/raw/main/slides/slides.pdf) | [download course description as pdf](https://ssc.iwr.uni-heidelberg.de/sites/default/files/high-performance-cpp-ss22.pdf)
 
 ## Getting started
 
@@ -22,6 +23,7 @@ cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
 ./bench/bench
 ```
+
 Notes
 
 - CMake 3.16 gave a `target "BLAS::BLAS"` error on Ubuntu (see [#13](https://github.com/ssciwr/high-performance-cpp/issues/13))
