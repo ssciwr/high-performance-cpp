@@ -1,7 +1,7 @@
 # High Performance C++
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ssciwr/high-performance-cpp/CI)](https://github.com/ssciwr/high-performance-cpp/actions?query=workflow%3ACI)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ssciwr/high-performance-cpp/ci.yml?branch=main)](https://github.com/ssciwr/high-performance-cpp/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/ssciwr/high-performance-cpp/branch/main/graph/badge.svg)](https://codecov.io/gh/ssciwr/high-performance-cpp)
 
 ## Slides
