@@ -27,7 +27,7 @@ jobs:
           - os: windows-latest
             blas: "OFF"
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: "recursive"
       - uses: actions/setup-python@v4
@@ -37,7 +37,9 @@ jobs:
           if [ "$RUNNER_OS" == "Linux" ]; then
             sudo apt-get update -yy && sudo apt-get install -yy libopenblas-openmp-dev
           elif [ "$RUNNER_OS" == "macOS" ]; then
-            brew install libomp openblas
+            brew install llvm libomp openblas
+            echo CC="$(brew --prefix llvm)/bin/clang" >> $GITHUB_ENV
+            echo CXX="$(brew --prefix llvm)/bin/clang++" >> $GITHUB_ENV
           fi
       - name: Build & test
         env:
@@ -58,7 +60,7 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           submodules: "recursive"
