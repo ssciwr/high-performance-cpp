@@ -32,7 +32,7 @@ jobs:
           submodules: "recursive"
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.12"
       - run: |
           if [ "$RUNNER_OS" == "Linux" ]; then
             sudo apt-get update -yy && sudo apt-get install -yy libopenblas-openmp-dev
@@ -47,7 +47,7 @@ jobs:
         run: |
           mkdir build && cd build
           cmake -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release -DHPCPP_WITH_BLAS=$HPCPP_WITH_BLAS ..
-          cmake --build . --config Release -j 3
+          cmake --build . --config Release -j 4
           ctest
       - name: Run benchmark
         run: |
@@ -66,13 +66,13 @@ jobs:
           submodules: "recursive"
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.12"
       - run: pip install gcovr
       - name: Build & test
         run: |
           mkdir build && cd build
           cmake -DBUILD_TESTING=ON -DHPCPP_BUILD_BENCHMARKS=OFF -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage" ..
-          cmake --build . -j 3
+          cmake --build . -j 4
           ctest
       - name: Generate coverage report
         run: |
@@ -81,4 +81,6 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           files: ./coverage.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
           verbose: true
